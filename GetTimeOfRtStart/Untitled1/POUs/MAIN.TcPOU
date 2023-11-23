@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <POU Name="MAIN" Id="{3c5d083f-b959-44bc-acb3-e333f358aaea}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM MAIN
+VAR
+	t_startTimeRt AT %I* :ULINT; 
+	rtStartTime : TIMESTRUCT;
+	b_convert : BOOL;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[IF b_convert THEN
+	rtStartTime := DT_TO_SYSTEMTIME(FILETIME64_TO_DT(t_startTimeRt));
+END_IF]]></ST>
+    </Implementation>
+    <LineIds Name="MAIN">
+      <LineId Id="2" Count="0" />
+      <LineId Id="8" Count="1" />
+    </LineIds>
+  </POU>
+</TcPlcObject>
